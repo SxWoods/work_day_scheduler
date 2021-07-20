@@ -9,12 +9,12 @@ $(document).ready(function () {
             var task = localStorage.getItem(i);
             var rowEl = $("<div>").addClass("row");
 
-            // Creates each element the row
+            // Creates element in current row
             let timeEl = $("<label>").addClass("hour col-12 col-lg-2").val(i).text(i).attr("type", "label");
             let input = $("<input>").addClass("col-12 col-lg-8").attr("type", "text").val(task);
             let button = $("<button>").addClass("saveBtn col-12 col-lg-2").text("save").attr("type", "button");
 
-            // When the button is clicked input text is saved to local storage
+            //After the button is clicked, task will be saved to local storage
             button.click(function (i) {
                 let myInput = input.val();
                 let hour = timeEl.val();
@@ -28,12 +28,12 @@ $(document).ready(function () {
         })
     }
 
-    // A time in the past is grey, the present is red, and the future is green.
+    // Color codes timeblocks. Past = Grey, Present = Transparent, Future = Gold
     function timeBlockColor(timeEl, input) {
         let currentTime = moment().hours();
         let ourTime = parseInt(timeEl.val().split(" ")[0]);
         
-        // currentTime will appear as military time. To make ourTime in military time, add 12 to the values of ourTime less than 6.
+        // Current time will be displayed in military time. Make ourTime military time, by adding 12 to any values less than 6
         if (ourTime < 6) {
             ourTime = ourTime + 12;
         }
@@ -51,4 +51,3 @@ $(document).ready(function () {
 
     createTimeBlocks();
 })
-©

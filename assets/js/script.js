@@ -1,3 +1,10 @@
+//Day will show at the top of the page (moment and changing the DOM) 
+
+//Checks current hour vs time displayed on screen in the time blocks
+
+//Function for saving entered task into local storage
+
+
 $(document).ready(function() {
 
     document.querySelector('#currentDay').textContent = moment().format('MMM DD, YYYY');
@@ -48,3 +55,4 @@ $(document).ready(function() {
     }
 
     buildTimeBlocks();
+})
